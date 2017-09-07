@@ -17,13 +17,13 @@ Source0:        https://github.com/%{pkgname}/%{pkgname}/releases/download/v%{ve
 BuildRequires: mingw32-filesystem >= 95
 BuildRequires: mingw32-gcc
 BuildRequires: mingw32-python2
-BuildRequires: mingw32-python2-cython
+BuildRequires: mingw32-python2-Cython
 BuildRequires: mingw32-python2-setuptools
 
 BuildRequires: mingw64-filesystem >= 95
 BuildRequires: mingw64-gcc
 BuildRequires: mingw64-python2
-BuildRequires: mingw64-python2-cython
+BuildRequires: mingw64-python2-Cython
 BuildRequires: mingw64-python2-setuptools
 
 
