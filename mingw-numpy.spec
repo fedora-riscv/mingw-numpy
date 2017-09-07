@@ -44,8 +44,8 @@ Summary:       MinGW Windows Python2 %{pkgname} library
 %description -n mingw64-python2-%{pkgname}
 MinGW Windows Python2 %{pkgname} library.
 
-
-%{?mingw_debug_package}
+# No binaries
+#{?mingw_debug_package}
 
 
 %prep
