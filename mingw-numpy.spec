@@ -5,7 +5,7 @@
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
 Version:       1.13.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
@@ -14,13 +14,13 @@ URL:            http://www.numpy.org/
 Source0:        https://github.com/%{pkgname}/%{pkgname}/releases/download/v%{version}/%{pkgname}-%{version}.tar.gz
 
 
-BuildRequires: mingw32-filesystem >= 95
+BuildRequires: mingw32-filesystem >= 102
 BuildRequires: mingw32-gcc
 BuildRequires: mingw32-python2
 BuildRequires: mingw32-python2-Cython
 BuildRequires: mingw32-python2-setuptools
 
-BuildRequires: mingw64-filesystem >= 95
+BuildRequires: mingw64-filesystem >= 102
 BuildRequires: mingw64-gcc
 BuildRequires: mingw64-python2
 BuildRequires: mingw64-python2-Cython
@@ -44,8 +44,7 @@ Summary:       MinGW Windows Python2 %{pkgname} library
 %description -n mingw64-python2-%{pkgname}
 MinGW Windows Python2 %{pkgname} library.
 
-# No binaries
-#{?mingw_debug_package}
+%{?mingw_debug_package}
 
 
 %prep
@@ -68,18 +67,25 @@ ln -s build_mingw64 build
 %{mingw64_python2} setup.py install -O1 --root=%{buildroot}
 rm build
 
+# Exclude debug files from the main files (note: the debug files are only created after %%install, so we can't search for them directly)
+find %{buildroot}%{mingw32_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{buildroot}\(.*\)$|%%exclude \1.debug|' > mingw32-python2-%{pkgname}.debugfiles
+find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{buildroot}\(.*\)$|%%exclude \1.debug|' > mingw64-python2-%{pkgname}.debugfiles
 
-%files -n mingw32-python2-%{pkgname}
+
+%files -n mingw32-python2-%{pkgname} -f mingw32-python2-%{pkgname}.debugfiles
 %license LICENSE.txt
 %{mingw32_bindir}/f2py2
 %{mingw32_python2_sitearch}/*
 
-%files -n mingw64-python2-%{pkgname}
+%files -n mingw64-python2-%{pkgname} -f mingw64-python2-%{pkgname}.debugfiles
 %license LICENSE.txt
 %{mingw64_bindir}/f2py2
 %{mingw64_python2_sitearch}/*
 
 
 %changelog
+* Sat Sep 09 2017 Sandro Mani <manisandro@gmail.com> - 1.13.1-2
+- Rebuild for mingw-filesystem
+
 * Sat Sep 02 2017 Sandro Mani <manisandro@gmail.com> - 1.13.1-1
 - Initial package
