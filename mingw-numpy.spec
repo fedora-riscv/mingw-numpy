@@ -4,14 +4,14 @@
 
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
-Version:       1.13.2
+Version:       1.13.3
 Release:       1%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
-License:        BSD and Python
-URL:            http://www.numpy.org/
-Source0:        https://github.com/%{pkgname}/%{pkgname}/releases/download/v%{version}/%{pkgname}-%{version}-1.tar.gz
+License:       BSD and Python
+URL:           http://www.numpy.org/
+Source0:       https://github.com/%{pkgname}/%{pkgname}/releases/download/v%{version}/%{pkgname}-%{version}.tar.gz
 
 
 BuildRequires: mingw32-filesystem >= 102
@@ -84,6 +84,9 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 
 %changelog
+* Sun Oct 08 2017 Sandro Mani <manisandro@gmail.com> - 1.13.3-1
+- Update to 1.13.3
+
 * Fri Sep 29 2017 Sandro Mani <manisandro@gmail.com> - 1.13.2-1
 - Update to 1.13.2
 
