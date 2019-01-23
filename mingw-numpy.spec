@@ -4,7 +4,7 @@
 
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
-Version:       1.15.1
+Version:       1.16.0
 Release:       1%{?dist}
 BuildArch:     noarch
 
@@ -74,16 +74,23 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 %files -n mingw32-python2-%{pkgname} -f mingw32-python2-%{pkgname}.debugfiles
 %license LICENSE.txt
+%{mingw32_bindir}/f2py
 %{mingw32_bindir}/f2py2
+%{mingw32_bindir}/f2py2.7
 %{mingw32_python2_sitearch}/*
 
 %files -n mingw64-python2-%{pkgname} -f mingw64-python2-%{pkgname}.debugfiles
 %license LICENSE.txt
+%{mingw64_bindir}/f2py
 %{mingw64_bindir}/f2py2
+%{mingw64_bindir}/f2py2.7
 %{mingw64_python2_sitearch}/*
 
 
 %changelog
+* Tue Jan 22 2019 Sandro Mani <manisandro@gmail.com> - 1.16.0-1
+- Update to 1.16.0
+
 * Thu Aug 30 2018 Sandro Mani <manisandro@gmail.com> - 1.15.1-1
 - Update to 1.15.1
 
