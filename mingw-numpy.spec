@@ -4,8 +4,8 @@
 
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
-Version:       1.16.0
-Release:       2%{?dist}
+Version:       1.16.1
+Release:       1%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
@@ -88,6 +88,9 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 
 %changelog
+* Mon Feb 04 2019 Sandro Mani <manisandro@gmail.com> - 1.16.1-1
+- Update to 1.16.1
+
 * Fri Feb 01 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.16.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
