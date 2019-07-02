@@ -4,8 +4,8 @@
 
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
-Version:       1.16.3
-Release:       2%{?dist}
+Version:       1.16.4
+Release:       1%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
@@ -132,6 +132,9 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 
 %changelog
+* Tue Jul 02 2019 Sandro Mani <manisandro@gmail.com> - 1.16.4-1
+- Update to 1.16.4
+
 * Wed May 01 2019 Sandro Mani <manisandro@gmail.com> - 1.16.3-2
 - Add python3 subpackages
 
