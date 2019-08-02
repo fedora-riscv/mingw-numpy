@@ -1,0 +1,36 @@
+diff -rupN numpy-1.17.0/numpy/random/src/mt19937/mt19937.h numpy-1.17.0-new/numpy/random/src/mt19937/mt19937.h
+--- numpy-1.17.0/numpy/random/src/mt19937/mt19937.h	2019-07-26 16:10:50.000000000 +0200
++++ numpy-1.17.0-new/numpy/random/src/mt19937/mt19937.h	2019-08-02 13:24:59.232065740 +0200
+@@ -2,7 +2,7 @@
+ #include <math.h>
+ #include <stdint.h>
+ 
+-#ifdef _WIN32
++#ifdef _MSC_VER
+ #define inline __forceinline
+ #endif
+ 
+diff -rupN numpy-1.17.0/numpy/random/src/pcg64/pcg64.h numpy-1.17.0-new/numpy/random/src/pcg64/pcg64.h
+--- numpy-1.17.0/numpy/random/src/pcg64/pcg64.h	2019-07-26 16:10:50.000000000 +0200
++++ numpy-1.17.0-new/numpy/random/src/pcg64/pcg64.h	2019-08-02 14:18:43.854394241 +0200
+@@ -52,7 +52,7 @@
+ 
+ #include <inttypes.h>
+ 
+-#ifdef _WIN32
++#ifdef _MSC_VER
+ #include <stdlib.h>
+ #define inline __forceinline
+ #endif
+diff -rupN numpy-1.17.0/numpy/random/src/philox/philox.h numpy-1.17.0-new/numpy/random/src/philox/philox.h
+--- numpy-1.17.0/numpy/random/src/philox/philox.h	2019-07-26 16:10:50.000000000 +0200
++++ numpy-1.17.0-new/numpy/random/src/philox/philox.h	2019-08-02 13:54:21.498728700 +0200
+@@ -33,7 +33,7 @@ static NPY_INLINE uint64_t mulhilo64(uin
+   return (uint64_t)product;
+ }
+ #else
+-#ifdef _WIN32
++#ifdef _MSC_VER
+ #include <intrin.h>
+ #if defined(_WIN64) && defined(_M_AMD64)
+ #pragma intrinsic(_umul128)
