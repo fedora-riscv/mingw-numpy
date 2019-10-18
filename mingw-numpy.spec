@@ -4,8 +4,8 @@
 
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
-Version:       1.17.2
-Release:       2%{?dist}
+Version:       1.17.3
+Release:       1%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
@@ -89,6 +89,9 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 
 %changelog
+* Fri Oct 18 2019 Sandro Mani <manisandro@gmail.com> - 1.17.3-1
+- Update to 1.17.3
+
 * Tue Oct 08 2019 Sandro Mani <manisandro@gmail.com> - 1.17.2-2
 - Rebuild (Changes/Mingw32GccDwarf2)
 
