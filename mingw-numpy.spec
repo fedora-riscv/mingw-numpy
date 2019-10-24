@@ -5,7 +5,7 @@
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
 Version:       1.17.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
@@ -68,6 +68,18 @@ ln -s build_py3_mingw64 build
 %{mingw64_python3} setup.py install -O1 --root=%{buildroot} --skip-build
 rm build
 
+# FIXME: These files are not installed for some reason
+cp -a build_py3_mingw32/src.mingw-%{mingw32_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_py3_mingw32/src.mingw-%{mingw32_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_py3_mingw64/src.mingw-%{mingw64_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_py3_mingw64/src.mingw-%{mingw64_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
+
+# Symlink includedir
+mkdir -p %{buildroot}%{mingw32_includedir}
+mkdir -p %{buildroot}%{mingw64_includedir}
+ln -s %{mingw32_python3_sitearch}/numpy/core/include/numpy/ %{buildroot}%{mingw32_includedir}/numpy
+ln -s %{mingw64_python3_sitearch}/numpy/core/include/numpy/ %{buildroot}%{mingw64_includedir}/numpy
+
 # Exclude debug files from the main files (note: the debug files are only created after %%install, so we can't search for them directly)
 find %{buildroot}%{mingw32_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{buildroot}\(.*\)$|%%exclude \1.debug|' > mingw32-%{pkgname}.debugfiles
 find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{buildroot}\(.*\)$|%%exclude \1.debug|' > mingw64-%{pkgname}.debugfiles
@@ -78,6 +90,7 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 %{mingw32_bindir}/f2py
 %{mingw32_bindir}/f2py3
 %{mingw32_bindir}/f2py%{mingw32_python3_version}
+%{mingw32_includedir}/%{pkgname}
 %{mingw32_python3_sitearch}/*
 
 %files -n mingw64-python3-%{pkgname} -f mingw64-%{pkgname}.debugfiles
@@ -85,10 +98,15 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 %{mingw64_bindir}/f2py
 %{mingw64_bindir}/f2py3
 %{mingw64_bindir}/f2py%{mingw32_python3_version}
+%{mingw64_includedir}/%{pkgname}
 %{mingw64_python3_sitearch}/*
 
 
 %changelog
+* Thu Oct 24 2019 Sandro Mani <manisandro@gmail.com> - 1.17.3-2
+- Link devel files to include dir
+- Add missing headers
+
 * Fri Oct 18 2019 Sandro Mani <manisandro@gmail.com> - 1.17.3-1
 - Update to 1.17.3
 
