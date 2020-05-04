@@ -1,6 +1,6 @@
-diff -rupN --no-dereference numpy-1.18.3/numpy/random/src/mt19937/mt19937.h numpy-1.18.3-new/numpy/random/src/mt19937/mt19937.h
---- numpy-1.18.3/numpy/random/src/mt19937/mt19937.h	2020-04-01 18:08:03.000000000 +0200
-+++ numpy-1.18.3-new/numpy/random/src/mt19937/mt19937.h	2020-04-21 10:06:53.989903667 +0200
+diff -rupN --no-dereference numpy-1.18.4/numpy/random/src/mt19937/mt19937.h numpy-1.18.4-new/numpy/random/src/mt19937/mt19937.h
+--- numpy-1.18.4/numpy/random/src/mt19937/mt19937.h	2020-04-01 18:08:03.000000000 +0200
++++ numpy-1.18.4-new/numpy/random/src/mt19937/mt19937.h	2020-05-04 13:46:05.957218110 +0200
 @@ -2,7 +2,7 @@
  #include <math.h>
  #include <stdint.h>
@@ -10,9 +10,9 @@ diff -rupN --no-dereference numpy-1.18.3/numpy/random/src/mt19937/mt19937.h nump
  #define inline __forceinline
  #endif
  
-diff -rupN --no-dereference numpy-1.18.3/numpy/random/src/pcg64/pcg64.h numpy-1.18.3-new/numpy/random/src/pcg64/pcg64.h
---- numpy-1.18.3/numpy/random/src/pcg64/pcg64.h	2020-04-01 18:08:03.000000000 +0200
-+++ numpy-1.18.3-new/numpy/random/src/pcg64/pcg64.h	2020-04-21 10:06:53.990903673 +0200
+diff -rupN --no-dereference numpy-1.18.4/numpy/random/src/pcg64/pcg64.h numpy-1.18.4-new/numpy/random/src/pcg64/pcg64.h
+--- numpy-1.18.4/numpy/random/src/pcg64/pcg64.h	2020-04-01 18:08:03.000000000 +0200
++++ numpy-1.18.4-new/numpy/random/src/pcg64/pcg64.h	2020-05-04 13:46:05.957218110 +0200
 @@ -52,7 +52,7 @@
  
  #include <inttypes.h>
@@ -22,9 +22,9 @@ diff -rupN --no-dereference numpy-1.18.3/numpy/random/src/pcg64/pcg64.h numpy-1.
  #include <stdlib.h>
  #define inline __forceinline
  #endif
-diff -rupN --no-dereference numpy-1.18.3/numpy/random/src/philox/philox.h numpy-1.18.3-new/numpy/random/src/philox/philox.h
---- numpy-1.18.3/numpy/random/src/philox/philox.h	2020-04-01 18:08:03.000000000 +0200
-+++ numpy-1.18.3-new/numpy/random/src/philox/philox.h	2020-04-21 10:06:53.990903673 +0200
+diff -rupN --no-dereference numpy-1.18.4/numpy/random/src/philox/philox.h numpy-1.18.4-new/numpy/random/src/philox/philox.h
+--- numpy-1.18.4/numpy/random/src/philox/philox.h	2020-04-01 18:08:03.000000000 +0200
++++ numpy-1.18.4-new/numpy/random/src/philox/philox.h	2020-05-04 13:46:05.957218110 +0200
 @@ -33,7 +33,7 @@ static NPY_INLINE uint64_t mulhilo64(uin
    return (uint64_t)product;
  }
