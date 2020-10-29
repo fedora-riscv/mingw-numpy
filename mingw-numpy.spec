@@ -4,7 +4,7 @@
 
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
-Version:       1.19.2
+Version:       1.19.3
 Release:       1%{?dist}
 BuildArch:     noarch
 
@@ -103,6 +103,9 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 
 %changelog
+* Thu Oct 29 2020 Sandro Mani <manisandro@gmail.com> - 1.19.3-1
+- Update to 1.19.3
+
 * Fri Sep 11 2020 Sandro Mani <manisandro@gmail.com> - 1.19.2-1
 - Update to 1.19.2
 
