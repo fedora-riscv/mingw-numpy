@@ -1,6 +1,20 @@
-diff -rupN --no-dereference numpy-1.19.5/numpy/random/src/mt19937/mt19937.h numpy-1.19.5-new/numpy/random/src/mt19937/mt19937.h
---- numpy-1.19.5/numpy/random/src/mt19937/mt19937.h	2020-12-07 23:18:25.846972000 +0100
-+++ numpy-1.19.5-new/numpy/random/src/mt19937/mt19937.h	2021-01-09 11:08:59.395098408 +0100
+diff -rupN --no-dereference numpy-1.20.0/numpy/core/include/numpy/npy_common.h numpy-1.20.0-new/numpy/core/include/numpy/npy_common.h
+--- numpy-1.20.0/numpy/core/include/numpy/npy_common.h	2021-01-29 22:13:11.676562000 +0100
++++ numpy-1.20.0-new/numpy/core/include/numpy/npy_common.h	2021-02-03 11:34:30.391240595 +0100
+@@ -180,8 +180,8 @@
+ 
+ /* mingw based on 3.4.5 has lseek but not ftell/fseek */
+ #if defined(__MINGW32__) || defined(__MINGW64__)
+-extern int __cdecl _fseeki64(FILE *, long long, int);
+-extern long long __cdecl _ftelli64(FILE *);
++extern _CRTIMP int __cdecl _fseeki64(FILE *, long long, int);
++extern _CRTIMP long long __cdecl _ftelli64(FILE *);
+ #endif
+ 
+     #define npy_fseek _fseeki64
+diff -rupN --no-dereference numpy-1.20.0/numpy/random/src/mt19937/mt19937.h numpy-1.20.0-new/numpy/random/src/mt19937/mt19937.h
+--- numpy-1.20.0/numpy/random/src/mt19937/mt19937.h	2021-01-21 02:55:54.119482300 +0100
++++ numpy-1.20.0-new/numpy/random/src/mt19937/mt19937.h	2021-02-03 11:34:30.391240595 +0100
 @@ -2,7 +2,7 @@
  #include <math.h>
  #include <stdint.h>
@@ -10,9 +24,9 @@ diff -rupN --no-dereference numpy-1.19.5/numpy/random/src/mt19937/mt19937.h nump
  #define inline __forceinline
  #endif
  
-diff -rupN --no-dereference numpy-1.19.5/numpy/random/src/pcg64/pcg64.h numpy-1.19.5-new/numpy/random/src/pcg64/pcg64.h
---- numpy-1.19.5/numpy/random/src/pcg64/pcg64.h	2021-01-03 19:35:25.798024000 +0100
-+++ numpy-1.19.5-new/numpy/random/src/pcg64/pcg64.h	2021-01-09 11:08:59.395098408 +0100
+diff -rupN --no-dereference numpy-1.20.0/numpy/random/src/pcg64/pcg64.h numpy-1.20.0-new/numpy/random/src/pcg64/pcg64.h
+--- numpy-1.20.0/numpy/random/src/pcg64/pcg64.h	2021-01-29 22:13:11.704561700 +0100
++++ numpy-1.20.0-new/numpy/random/src/pcg64/pcg64.h	2021-02-03 11:34:30.391240595 +0100
 @@ -52,7 +52,7 @@
  
  #include <inttypes.h>
@@ -22,9 +36,9 @@ diff -rupN --no-dereference numpy-1.19.5/numpy/random/src/pcg64/pcg64.h numpy-1.
  #include <stdlib.h>
  #define inline __forceinline
  #endif
-diff -rupN --no-dereference numpy-1.19.5/numpy/random/src/philox/philox.h numpy-1.19.5-new/numpy/random/src/philox/philox.h
---- numpy-1.19.5/numpy/random/src/philox/philox.h	2020-12-07 23:18:25.847972000 +0100
-+++ numpy-1.19.5-new/numpy/random/src/philox/philox.h	2021-01-09 11:08:59.395098408 +0100
+diff -rupN --no-dereference numpy-1.20.0/numpy/random/src/philox/philox.h numpy-1.20.0-new/numpy/random/src/philox/philox.h
+--- numpy-1.20.0/numpy/random/src/philox/philox.h	2021-01-21 02:55:54.120482400 +0100
++++ numpy-1.20.0-new/numpy/random/src/philox/philox.h	2021-02-03 11:34:30.391240595 +0100
 @@ -33,7 +33,7 @@ static NPY_INLINE uint64_t mulhilo64(uin
    return (uint64_t)product;
  }
