@@ -15,6 +15,8 @@ Source0:       https://github.com/%{pkgname}/%{pkgname}/releases/download/v%{ver
 
 # Don't use MSC specific stuff
 Patch0:        numpy_mingw.patch
+# Fix python 3.10 build
+Patch1:        numpy-py310.patch
 
 
 BuildRequires: mingw32-filesystem >= 102
