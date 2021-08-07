@@ -4,8 +4,8 @@
 
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
-Version:       1.20.1
-Release:       3%{?dist}
+Version:       1.21.1
+Release:       1%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
@@ -15,8 +15,6 @@ Source0:       https://github.com/%{pkgname}/%{pkgname}/releases/download/v%{ver
 
 # Don't use MSC specific stuff
 Patch0:        numpy_mingw.patch
-# Fix python 3.10 build
-Patch1:        numpy-py310.patch
 
 
 BuildRequires: mingw32-filesystem >= 102
@@ -105,6 +103,9 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 
 %changelog
+* Sat Aug 07 2021 Sandro Mani <manisandro@gmail.com> - 1.21.1-1
+- Update to 1.21.1
+
 * Thu Jul 22 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.20.1-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
 
