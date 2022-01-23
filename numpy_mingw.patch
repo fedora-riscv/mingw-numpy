@@ -48,3 +48,15 @@ diff -rupN --no-dereference numpy-1.22.0/numpy/random/src/philox/philox.h numpy-
  #include <intrin.h>
  #if defined(_WIN64) && defined(_M_AMD64)
  #pragma intrinsic(_umul128)
+diff -rupN numpy-1.22.0/numpy/core/setup.py numpy-1.22.0-new/numpy/core/setup.py
+--- numpy-1.22.0/numpy/core/setup.py	2021-12-30 04:45:56.019685500 +0100
++++ numpy-1.22.0-new/numpy/core/setup.py	2022-01-23 23:04:17.757305613 +0100
+@@ -70,7 +70,7 @@ def can_link_svml():
+     """
+     machine = platform.machine()
+     system = platform.system()
+-    return "x86_64" in machine and system == "Linux"
++    return False
+ 
+ def check_svml_submodule(svmlpath):
+     if not os.path.exists(svmlpath + "/README.md"):

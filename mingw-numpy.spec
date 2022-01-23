@@ -55,8 +55,8 @@ MinGW Windows Python3 %{pkgname} library.
 %build
 # Add -fno-asynchronous-unwind-tables to workaround "Error: invalid register for .seh_savexmm"
 # See https://stackoverflow.com/questions/43152633/invalid-register-for-seh-savexmm-in-cygwin
-CFLAGS="%{mingw32_cflags} -fno-asynchronous-unwind-tables" %{mingw32_python3} setup.py build -b build_py3_mingw32
-CFLAGS="%{mingw64_cflags} -fno-asynchronous-unwind-tables" %{mingw64_python3} setup.py build -b build_py3_mingw64
+MINGW32_CFLAGS="%{mingw32_cflags} -fno-asynchronous-unwind-tables" %{mingw32_python3} setup.py build -b build_py3_mingw32
+MINGW64_CFLAGS="%{mingw64_cflags} -fno-asynchronous-unwind-tables" %{mingw64_python3} setup.py build -b build_py3_mingw64
 
 
 %install
