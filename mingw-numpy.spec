@@ -5,7 +5,7 @@
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
 Version:       1.22.0
-Release:       5%{?dist}
+Release:       6%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
@@ -103,6 +103,9 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 
 %changelog
+* Thu Jul 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.22.0-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
+
 * Fri Mar 25 2022 Sandro Mani <manisandro@gmail.com> - 1.22.0-5
 - Rebuild with mingw-gcc-12
 
