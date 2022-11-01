@@ -66,10 +66,10 @@ MINGW64_CFLAGS="%{mingw64_cflags} -fno-asynchronous-unwind-tables" %mingw64_py3_
 %mingw64_py3_install
 
 # FIXME: These files are not installed for some reason
-cp -a build_mingw32/src.mingw-%{mingw32_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
-cp -a build_mingw32/src.mingw-%{mingw32_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
-cp -a build_mingw64/src.mingw-%{mingw64_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
-cp -a build_mingw64/src.mingw-%{mingw64_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_mingw32/src.mingw32-%{mingw32_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_mingw32/src.mingw32-%{mingw32_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_mingw64/src.mingw64-%{mingw64_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_mingw64/src.mingw64-%{mingw64_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
 
 # Symlink includedir
 mkdir -p %{buildroot}%{mingw32_includedir}
