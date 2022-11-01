@@ -1,0 +1,12 @@
+diff -rupN --no-dereference numpy-1.23.4/numpy/distutils/ccompiler_opt.py numpy-1.23.4-new/numpy/distutils/ccompiler_opt.py
+--- numpy-1.23.4/numpy/distutils/ccompiler_opt.py	2022-10-12 05:12:48.996638300 +0200
++++ numpy-1.23.4-new/numpy/distutils/ccompiler_opt.py	2022-10-20 00:13:05.505596313 +0200
+@@ -203,7 +203,7 @@ class _Config:
+             # native usually works only with x86
+             native = '-march=native',
+             opt = '-O3',
+-            werror = '-Werror',
++            werror = '',
+         ),
+         clang = dict(
+             native = '-march=native',

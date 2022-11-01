@@ -1,20 +1,20 @@
-diff -rupN --no-dereference numpy-1.22.0/numpy/core/include/numpy/npy_common.h numpy-1.22.0-new/numpy/core/include/numpy/npy_common.h
---- numpy-1.22.0/numpy/core/include/numpy/npy_common.h	2021-12-20 02:19:55.583084600 +0100
-+++ numpy-1.22.0-new/numpy/core/include/numpy/npy_common.h	2022-01-07 10:05:00.868858560 +0100
-@@ -182,8 +182,8 @@
+diff -rupN --no-dereference numpy-1.23.4/numpy/core/setup.py numpy-1.23.4-new/numpy/core/setup.py
+--- numpy-1.23.4/numpy/core/setup.py	2022-10-12 05:12:48.920632800 +0200
++++ numpy-1.23.4-new/numpy/core/setup.py	2022-10-20 00:13:05.229596329 +0200
+@@ -80,9 +80,7 @@ def can_link_svml():
+     if NPY_DISABLE_SVML:
+         return False
+     platform = sysconfig.get_platform()
+-    return ("x86_64" in platform
+-            and "linux" in platform
+-            and sys.maxsize > 2**31)
++    return False
  
- /* mingw based on 3.4.5 has lseek but not ftell/fseek */
- #if defined(__MINGW32__) || defined(__MINGW64__)
--extern int __cdecl _fseeki64(FILE *, long long, int);
--extern long long __cdecl _ftelli64(FILE *);
-+extern _CRTIMP int __cdecl _fseeki64(FILE *, long long, int);
-+extern _CRTIMP long long __cdecl _ftelli64(FILE *);
- #endif
- 
-     #define npy_fseek _fseeki64
-diff -rupN --no-dereference numpy-1.22.0/numpy/random/src/mt19937/mt19937.h numpy-1.22.0-new/numpy/random/src/mt19937/mt19937.h
---- numpy-1.22.0/numpy/random/src/mt19937/mt19937.h	2021-11-03 19:18:02.582594000 +0100
-+++ numpy-1.22.0-new/numpy/random/src/mt19937/mt19937.h	2022-01-07 10:05:00.869858563 +0100
+ def check_svml_submodule(svmlpath):
+     if not os.path.exists(svmlpath + "/README.md"):
+diff -rupN --no-dereference numpy-1.23.4/numpy/random/src/mt19937/mt19937.h numpy-1.23.4-new/numpy/random/src/mt19937/mt19937.h
+--- numpy-1.23.4/numpy/random/src/mt19937/mt19937.h	2022-10-12 05:12:49.080644100 +0200
++++ numpy-1.23.4-new/numpy/random/src/mt19937/mt19937.h	2022-10-20 00:13:05.230596329 +0200
 @@ -2,7 +2,7 @@
  #include <math.h>
  #include <stdint.h>
@@ -24,9 +24,9 @@ diff -rupN --no-dereference numpy-1.22.0/numpy/random/src/mt19937/mt19937.h nump
  #define inline __forceinline
  #endif
  
-diff -rupN --no-dereference numpy-1.22.0/numpy/random/src/pcg64/pcg64.h numpy-1.22.0-new/numpy/random/src/pcg64/pcg64.h
---- numpy-1.22.0/numpy/random/src/pcg64/pcg64.h	2021-11-03 19:18:02.582594000 +0100
-+++ numpy-1.22.0-new/numpy/random/src/pcg64/pcg64.h	2022-01-07 10:05:00.869858563 +0100
+diff -rupN --no-dereference numpy-1.23.4/numpy/random/src/pcg64/pcg64.h numpy-1.23.4-new/numpy/random/src/pcg64/pcg64.h
+--- numpy-1.23.4/numpy/random/src/pcg64/pcg64.h	2022-10-12 05:12:49.080644100 +0200
++++ numpy-1.23.4-new/numpy/random/src/pcg64/pcg64.h	2022-10-20 00:13:05.230596329 +0200
 @@ -52,7 +52,7 @@
  
  #include <inttypes.h>
@@ -36,9 +36,9 @@ diff -rupN --no-dereference numpy-1.22.0/numpy/random/src/pcg64/pcg64.h numpy-1.
  #include <stdlib.h>
  #define inline __forceinline
  #endif
-diff -rupN --no-dereference numpy-1.22.0/numpy/random/src/philox/philox.h numpy-1.22.0-new/numpy/random/src/philox/philox.h
---- numpy-1.22.0/numpy/random/src/philox/philox.h	2021-11-03 19:18:02.583594000 +0100
-+++ numpy-1.22.0-new/numpy/random/src/philox/philox.h	2022-01-07 10:05:00.869858563 +0100
+diff -rupN --no-dereference numpy-1.23.4/numpy/random/src/philox/philox.h numpy-1.23.4-new/numpy/random/src/philox/philox.h
+--- numpy-1.23.4/numpy/random/src/philox/philox.h	2022-10-12 05:12:49.080644100 +0200
++++ numpy-1.23.4-new/numpy/random/src/philox/philox.h	2022-10-20 00:13:05.230596329 +0200
 @@ -33,7 +33,7 @@ static NPY_INLINE uint64_t mulhilo64(uin
    return (uint64_t)product;
  }
@@ -48,15 +48,3 @@ diff -rupN --no-dereference numpy-1.22.0/numpy/random/src/philox/philox.h numpy-
  #include <intrin.h>
  #if defined(_WIN64) && defined(_M_AMD64)
  #pragma intrinsic(_umul128)
-diff -rupN numpy-1.22.0/numpy/core/setup.py numpy-1.22.0-new/numpy/core/setup.py
---- numpy-1.22.0/numpy/core/setup.py	2021-12-30 04:45:56.019685500 +0100
-+++ numpy-1.22.0-new/numpy/core/setup.py	2022-01-23 23:04:17.757305613 +0100
-@@ -70,7 +70,7 @@ def can_link_svml():
-     """
-     machine = platform.machine()
-     system = platform.system()
--    return "x86_64" in machine and system == "Linux"
-+    return False
- 
- def check_svml_submodule(svmlpath):
-     if not os.path.exists(svmlpath + "/README.md"):
