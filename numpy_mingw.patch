@@ -1,6 +1,6 @@
-diff -rupN --no-dereference numpy-1.23.4/numpy/core/setup.py numpy-1.23.4-new/numpy/core/setup.py
---- numpy-1.23.4/numpy/core/setup.py	2022-10-12 05:12:48.920632800 +0200
-+++ numpy-1.23.4-new/numpy/core/setup.py	2022-10-20 00:13:05.229596329 +0200
+diff -rupN --no-dereference numpy-1.23.5/numpy/core/setup.py numpy-1.23.5-new/numpy/core/setup.py
+--- numpy-1.23.5/numpy/core/setup.py	2022-11-19 23:40:58.021490000 +0100
++++ numpy-1.23.5-new/numpy/core/setup.py	2022-12-05 10:10:52.557497900 +0100
 @@ -80,9 +80,7 @@ def can_link_svml():
      if NPY_DISABLE_SVML:
          return False
@@ -12,9 +12,9 @@ diff -rupN --no-dereference numpy-1.23.4/numpy/core/setup.py numpy-1.23.4-new/nu
  
  def check_svml_submodule(svmlpath):
      if not os.path.exists(svmlpath + "/README.md"):
-diff -rupN --no-dereference numpy-1.23.4/numpy/random/src/mt19937/mt19937.h numpy-1.23.4-new/numpy/random/src/mt19937/mt19937.h
---- numpy-1.23.4/numpy/random/src/mt19937/mt19937.h	2022-10-12 05:12:49.080644100 +0200
-+++ numpy-1.23.4-new/numpy/random/src/mt19937/mt19937.h	2022-10-20 00:13:05.230596329 +0200
+diff -rupN --no-dereference numpy-1.23.5/numpy/random/src/mt19937/mt19937.h numpy-1.23.5-new/numpy/random/src/mt19937/mt19937.h
+--- numpy-1.23.5/numpy/random/src/mt19937/mt19937.h	2022-11-19 23:40:58.193491000 +0100
++++ numpy-1.23.5-new/numpy/random/src/mt19937/mt19937.h	2022-12-05 10:10:52.559497834 +0100
 @@ -2,7 +2,7 @@
  #include <math.h>
  #include <stdint.h>
@@ -24,9 +24,9 @@ diff -rupN --no-dereference numpy-1.23.4/numpy/random/src/mt19937/mt19937.h nump
  #define inline __forceinline
  #endif
  
-diff -rupN --no-dereference numpy-1.23.4/numpy/random/src/pcg64/pcg64.h numpy-1.23.4-new/numpy/random/src/pcg64/pcg64.h
---- numpy-1.23.4/numpy/random/src/pcg64/pcg64.h	2022-10-12 05:12:49.080644100 +0200
-+++ numpy-1.23.4-new/numpy/random/src/pcg64/pcg64.h	2022-10-20 00:13:05.230596329 +0200
+diff -rupN --no-dereference numpy-1.23.5/numpy/random/src/pcg64/pcg64.h numpy-1.23.5-new/numpy/random/src/pcg64/pcg64.h
+--- numpy-1.23.5/numpy/random/src/pcg64/pcg64.h	2022-11-19 23:40:58.193491000 +0100
++++ numpy-1.23.5-new/numpy/random/src/pcg64/pcg64.h	2022-12-05 10:10:52.560497800 +0100
 @@ -52,7 +52,7 @@
  
  #include <inttypes.h>
@@ -36,9 +36,9 @@ diff -rupN --no-dereference numpy-1.23.4/numpy/random/src/pcg64/pcg64.h numpy-1.
  #include <stdlib.h>
  #define inline __forceinline
  #endif
-diff -rupN --no-dereference numpy-1.23.4/numpy/random/src/philox/philox.h numpy-1.23.4-new/numpy/random/src/philox/philox.h
---- numpy-1.23.4/numpy/random/src/philox/philox.h	2022-10-12 05:12:49.080644100 +0200
-+++ numpy-1.23.4-new/numpy/random/src/philox/philox.h	2022-10-20 00:13:05.230596329 +0200
+diff -rupN --no-dereference numpy-1.23.5/numpy/random/src/philox/philox.h numpy-1.23.5-new/numpy/random/src/philox/philox.h
+--- numpy-1.23.5/numpy/random/src/philox/philox.h	2022-11-19 23:40:58.193491000 +0100
++++ numpy-1.23.5-new/numpy/random/src/philox/philox.h	2022-12-05 10:10:52.561497767 +0100
 @@ -33,7 +33,7 @@ static NPY_INLINE uint64_t mulhilo64(uin
    return (uint64_t)product;
  }

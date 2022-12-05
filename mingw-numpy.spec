@@ -4,7 +4,7 @@
 
 Name:          mingw-%{pypi_name}
 Summary:       MinGW Windows Python %{pypi_name} library
-Version:       1.23.4
+Version:       1.23.5
 Release:       1%{?dist}
 BuildArch:     noarch
 
@@ -98,6 +98,9 @@ ln -s %{mingw64_python3_sitearch}/numpy/core/include/numpy/ %{buildroot}%{mingw6
 
 
 %changelog
+* Mon Dec 05 2022 Sandro Mani <manisandro@gmail.com> - 1.23.5-1
+- Update to 1.23.5
+
 * Wed Oct 19 2022 Sandro Mani <manisandro@gmail.com> - 1.23.4-1
 - Update to 1.23.4
 
