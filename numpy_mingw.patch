@@ -1,7 +1,7 @@
-diff -rupN --no-dereference numpy-1.23.5/numpy/core/setup.py numpy-1.23.5-new/numpy/core/setup.py
---- numpy-1.23.5/numpy/core/setup.py	2022-11-19 23:40:58.021490000 +0100
-+++ numpy-1.23.5-new/numpy/core/setup.py	2022-12-05 10:10:52.557497900 +0100
-@@ -80,9 +80,7 @@ def can_link_svml():
+diff -rupN --no-dereference numpy-1.24.1/numpy/core/setup.py numpy-1.24.1-new/numpy/core/setup.py
+--- numpy-1.24.1/numpy/core/setup.py	2022-12-26 04:52:52.930270000 +0100
++++ numpy-1.24.1-new/numpy/core/setup.py	2023-01-28 23:04:54.787161090 +0100
+@@ -81,9 +81,7 @@ def can_link_svml():
      if NPY_DISABLE_SVML:
          return False
      platform = sysconfig.get_platform()
@@ -12,21 +12,9 @@ diff -rupN --no-dereference numpy-1.23.5/numpy/core/setup.py numpy-1.23.5-new/nu
  
  def check_svml_submodule(svmlpath):
      if not os.path.exists(svmlpath + "/README.md"):
-diff -rupN --no-dereference numpy-1.23.5/numpy/random/src/mt19937/mt19937.h numpy-1.23.5-new/numpy/random/src/mt19937/mt19937.h
---- numpy-1.23.5/numpy/random/src/mt19937/mt19937.h	2022-11-19 23:40:58.193491000 +0100
-+++ numpy-1.23.5-new/numpy/random/src/mt19937/mt19937.h	2022-12-05 10:10:52.559497834 +0100
-@@ -2,7 +2,7 @@
- #include <math.h>
- #include <stdint.h>
- 
--#ifdef _WIN32
-+#ifdef _MSC_VER
- #define inline __forceinline
- #endif
- 
-diff -rupN --no-dereference numpy-1.23.5/numpy/random/src/pcg64/pcg64.h numpy-1.23.5-new/numpy/random/src/pcg64/pcg64.h
---- numpy-1.23.5/numpy/random/src/pcg64/pcg64.h	2022-11-19 23:40:58.193491000 +0100
-+++ numpy-1.23.5-new/numpy/random/src/pcg64/pcg64.h	2022-12-05 10:10:52.560497800 +0100
+diff -rupN --no-dereference numpy-1.24.1/numpy/random/src/pcg64/pcg64.h numpy-1.24.1-new/numpy/random/src/pcg64/pcg64.h
+--- numpy-1.24.1/numpy/random/src/pcg64/pcg64.h	2022-12-26 04:52:53.070270300 +0100
++++ numpy-1.24.1-new/numpy/random/src/pcg64/pcg64.h	2023-01-28 23:04:54.788161103 +0100
 @@ -52,7 +52,7 @@
  
  #include <inttypes.h>
@@ -34,17 +22,5 @@ diff -rupN --no-dereference numpy-1.23.5/numpy/random/src/pcg64/pcg64.h numpy-1.
 -#ifdef _WIN32
 +#ifdef _MSC_VER
  #include <stdlib.h>
- #define inline __forceinline
  #endif
-diff -rupN --no-dereference numpy-1.23.5/numpy/random/src/philox/philox.h numpy-1.23.5-new/numpy/random/src/philox/philox.h
---- numpy-1.23.5/numpy/random/src/philox/philox.h	2022-11-19 23:40:58.193491000 +0100
-+++ numpy-1.23.5-new/numpy/random/src/philox/philox.h	2022-12-05 10:10:52.561497767 +0100
-@@ -33,7 +33,7 @@ static NPY_INLINE uint64_t mulhilo64(uin
-   return (uint64_t)product;
- }
- #else
--#if defined(_WIN32)
-+#if defined(_MSC_VER)
- #include <intrin.h>
- #if defined(_WIN64) && defined(_M_AMD64)
- #pragma intrinsic(_umul128)
+ 

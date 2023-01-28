@@ -1,6 +1,6 @@
-diff -rupN --no-dereference numpy-1.23.5/numpy/distutils/ccompiler_opt.py numpy-1.23.5-new/numpy/distutils/ccompiler_opt.py
---- numpy-1.23.5/numpy/distutils/ccompiler_opt.py	2022-11-19 23:40:58.105490400 +0100
-+++ numpy-1.23.5-new/numpy/distutils/ccompiler_opt.py	2022-12-05 10:10:52.848488207 +0100
+diff -rupN --no-dereference numpy-1.24.1/numpy/distutils/ccompiler_opt.py numpy-1.24.1-new/numpy/distutils/ccompiler_opt.py
+--- numpy-1.24.1/numpy/distutils/ccompiler_opt.py	2022-12-26 04:52:52.998270000 +0100
++++ numpy-1.24.1-new/numpy/distutils/ccompiler_opt.py	2023-01-28 23:04:55.146165789 +0100
 @@ -203,7 +203,7 @@ class _Config:
              # native usually works only with x86
              native = '-march=native',
