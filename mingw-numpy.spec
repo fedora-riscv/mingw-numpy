@@ -5,7 +5,7 @@
 Name:          mingw-%{pkgname}
 Summary:       MinGW Windows Python %{pkgname} library
 Version:       1.22.0
-Release:       6%{?dist}
+Release:       6.rv64%{?dist}
 BuildArch:     noarch
 
 # Everything is BSD except for class SafeEval in numpy/lib/utils.py which is Python
@@ -69,10 +69,10 @@ ln -s build_py3_mingw64 build
 rm build
 
 # FIXME: These files are not installed for some reason
-cp -a build_py3_mingw32/src.mingw-%{mingw32_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
-cp -a build_py3_mingw32/src.mingw-%{mingw32_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
-cp -a build_py3_mingw64/src.mingw-%{mingw64_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
-cp -a build_py3_mingw64/src.mingw-%{mingw64_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_py3_mingw32/src.mingw32-%{mingw32_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_py3_mingw32/src.mingw32-%{mingw32_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw32_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_py3_mingw64/src.mingw64-%{mingw64_python3_version}/numpy/core/include/numpy/*.h %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
+cp -a build_py3_mingw64/src.mingw64-%{mingw64_python3_version}/numpy/core/include/numpy/*.txt %{buildroot}%{mingw64_python3_sitearch}/numpy/core/include/numpy/
 
 # Symlink includedir
 mkdir -p %{buildroot}%{mingw32_includedir}
@@ -103,6 +103,9 @@ find %{buildroot}%{mingw64_prefix} | grep -E '.(exe|dll|pyd)$' | sed 's|^%{build
 
 
 %changelog
+* Tue Feb 14 2023 Liu Yang <Yang.Liu.sn@gmail.com> - 1.22.0-6.rv64
+- Fix build on riscv64.
+
 * Thu Jul 21 2022 Fedora Release Engineering <releng@fedoraproject.org> - 1.22.0-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_37_Mass_Rebuild
 
